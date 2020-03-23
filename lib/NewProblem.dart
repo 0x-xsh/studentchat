@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:studentchat/ProblemList.dart';
 
 class app extends StatefulWidget {
   @override
@@ -135,7 +136,7 @@ class appState extends State<app> {
                     ),
                   ),
                   onPressed: () {
-                    //Move to another screen + use textcontroller values
+                     Navigator.push(context,MaterialPageRoute(builder: (context) => ProblemList()));
                   },
                 ),
               ),

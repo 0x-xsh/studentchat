@@ -13,9 +13,6 @@ class AcceuilState extends State<Acceuil> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-
-        ),
         floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.add,
