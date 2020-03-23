@@ -26,7 +26,7 @@ class appState extends State<app> {
             Navigator.of(context).pop();
           }, child: Icon(
               Icons.arrow_back)),
-          title: Text('Problem Description'),
+          title: Text('Problem Description of me'),
         ),
         body: SingleChildScrollView(
           child: Column(children: <Widget>[
