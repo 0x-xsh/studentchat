@@ -10,12 +10,14 @@ class app extends StatefulWidget {
 class appState extends State<app> {
   var modules = {"Algo", "Archi", "Analyse", "Algebre", "Proba"};
   var niveaux = {"1", "2", "3", "4", "5"};
+
   //Output values :
   var selecteditem = "Algo";
   var selectedlevel = "1";
   final problemDescription = TextEditingController();
   final problemDetails = TextEditingController();
   List<Problem> problems = [];
+
   /////
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,11 @@ class appState extends State<app> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: GestureDetector(onTap: () {
-            Navigator.of(context).pop();
-          }, child: Icon(
-              Icons.arrow_back)),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(Icons.arrow_back)),
           title: Text('Problem Description of me'),
         ),
         body: SingleChildScrollView(
@@ -137,9 +140,11 @@ class appState extends State<app> {
                     ),
                   ),
                   onPressed: () {
-                    Problem problem = new Problem(problemDescription.text,problemDetails.text);
+                    Problem problem = new Problem(problemDescription.text, problemDetails.text);
                     problems.add(problem);
-                     Navigator.push(context,MaterialPageRoute(builder: (context) => ProblemList()));
+                    print(problems[0].desc);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ProblemList()));
                   },
                 ),
               ),
@@ -155,7 +160,7 @@ class Problem {
   String desc;
   String details;
 
-  Problem(String desc , String details){
+  Problem(String desc, String details) {
     this.desc = desc;
     this.details = details;
   }
