@@ -9,7 +9,7 @@ class ProblemList extends StatefulWidget {
 }
 
 class ProblemListState extends State<ProblemList> {
-  TextEditingController k = appState().ProblemDescription;
+  
   
     @override
   Widget build(BuildContext context) {
@@ -21,10 +21,10 @@ class ProblemListState extends State<ProblemList> {
         ),
         body:
           ListView.builder(
-            itemCount: 1,
+            itemCount: appState().problems.length,
             itemBuilder: (BuildContext context, int index) {
             return Card(
-              child: Text(k.text));
+              child: Text(appState().problems[index].desc+"15 "+appState().problems[index].details));
            },
           ),
         ),

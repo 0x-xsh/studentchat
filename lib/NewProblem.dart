@@ -13,8 +13,9 @@ class appState extends State<app> {
   //Output values :
   var selecteditem = "Algo";
   var selectedlevel = "1";
-  final ProblemDescription = TextEditingController();
-  final ProblemDetails = TextEditingController();
+  final problemDescription = TextEditingController();
+  final problemDetails = TextEditingController();
+  List<Problem> problems = [];
   /////
   @override
   Widget build(BuildContext context) {
@@ -87,11 +88,11 @@ class appState extends State<app> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: TextFormField(
-                controller: ProblemDescription,
+                controller: problemDescription,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   icon: Icon(Icons.filter_frames),
-                  hintText: 'Enter a brief description of your problem',
+                  hintText: 'Enter a brief description of your Problem',
                   labelText: 'Problem Title :',
                 ),
                 validator: (String value) {
@@ -108,7 +109,7 @@ class appState extends State<app> {
                     border: Border.all(width: 2, color: Colors.indigoAccent),
                     borderRadius: BorderRadius.all(Radius.circular(5.0))),
                 child: TextField(
-                  controller: ProblemDetails,
+                  controller: problemDetails,
                   keyboardType: TextInputType.multiline,
                   maxLines: 7,
                   decoration: InputDecoration(
@@ -136,6 +137,8 @@ class appState extends State<app> {
                     ),
                   ),
                   onPressed: () {
+                    Problem problem = new Problem(problemDescription.text,problemDetails.text);
+                    problems.add(problem);
                      Navigator.push(context,MaterialPageRoute(builder: (context) => ProblemList()));
                   },
                 ),
@@ -145,5 +148,15 @@ class appState extends State<app> {
         ),
       ),
     );
+  }
+}
+
+class Problem {
+  String desc;
+  String details;
+
+  Problem(String desc , String details){
+    this.desc = desc;
+    this.details = details;
   }
 }
