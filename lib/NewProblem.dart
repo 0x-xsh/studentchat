@@ -16,6 +16,7 @@ class appState extends State<app> {
   var selectedlevel = "1";
   final problemDescription = TextEditingController();
   final problemDetails = TextEditingController();
+
   List<Problem> problems = [];
 
   /////
@@ -140,11 +141,14 @@ class appState extends State<app> {
                     ),
                   ),
                   onPressed: () {
-                    Problem problem = new Problem(problemDescription.text, problemDetails.text);
+                    Problem problem = new Problem(selecteditem, selectedlevel,
+                        problemDescription.text, problemDetails.text);
                     problems.add(problem);
-                    print(problems[0].desc);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ProblemList()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ProblemList(pList: problems)));
                   },
                 ),
               ),
@@ -159,8 +163,12 @@ class appState extends State<app> {
 class Problem {
   String desc;
   String details;
+  String lvl;
+  String module;
 
-  Problem(String desc, String details) {
+  Problem(String module, String lvl, String desc, String details) {
+    this.module = module;
+    this.lvl = lvl;
     this.desc = desc;
     this.details = details;
   }

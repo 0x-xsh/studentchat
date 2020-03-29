@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:studentchat/NewProblem.dart';
 
-
 class Acceuil extends StatefulWidget {
   @override
   AcceuilState createState() => AcceuilState();
@@ -26,12 +25,9 @@ class AcceuilState extends State<Acceuil> {
             }));
           },
         ),
-
-      body: Container(
-        //Acceuil
-      ),
-
-
+        body: Container(
+            //Acceuil here
+            ),
       ),
     );
   }
